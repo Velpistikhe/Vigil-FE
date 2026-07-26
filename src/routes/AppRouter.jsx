@@ -34,7 +34,7 @@ const AppRouter = () => {
         <Route element={<MainLayout />}>
           <Route path="/overview" element={<Dashboard />} />
           <Route path="/kalkulator" element={<Kalkulator />} />
-          <Route path="/setting/drug/*" element={<Drug />} />
+          <Route path="/appmanager/drug/*" element={<Drug />} />
         </Route>
       </Route>
     </Routes>

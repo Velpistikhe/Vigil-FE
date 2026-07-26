@@ -34,12 +34,12 @@ const menuList = [
     label: "Profile",
   },
   {
-    key: "/setting",
+    key: "/appmanager",
     icon: <SettingOutlined />,
-    label: "Setting",
+    label: "App Manager",
     children: [
       {
-        key: "/setting/drug",
+        key: "/appmanager/drug",
         label: "Drug",
       },
     ],
