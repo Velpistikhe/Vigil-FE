@@ -15,9 +15,9 @@ import Kalkulator from "../modules/kalkulator";
 import Drug from "../modules/settting/drugs";
 
 const AppRouter = () => {
-  const { loadingUser } = useContext(AuthContext);
+  const { loadingUser, loadingLogin, loadingLogout } = useContext(AuthContext);
 
-  if (loadingUser) return <Loading />;
+  if (loadingUser || loadingLogin || loadingLogout) return <Loading />;
 
   return (
     <Routes>

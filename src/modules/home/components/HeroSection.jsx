@@ -1,8 +1,4 @@
-import {
-  AlertOutlined,
-  ClockCircleOutlined,
-  ArrowRightOutlined,
-} from "@ant-design/icons";
+import { useNavigate } from "react-router";
 import {
   Button,
   Card,
@@ -14,12 +10,18 @@ import {
   Tag,
   Typography,
 } from "antd";
+import {
+  AlertOutlined,
+  ClockCircleOutlined,
+  ArrowRightOutlined,
+} from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
-const { useBreakpoint } = Grid;
 
 export default function HeroSection() {
-  const screens = useBreakpoint();
+  const screens = Grid.useBreakpoint();
+  const navigate = useNavigate();
+  const onClick = () => navigate("/overview");
 
   return (
     <section
@@ -83,6 +85,7 @@ export default function HeroSection() {
                 size="large"
                 icon={<ArrowRightOutlined />}
                 iconPlacement="end"
+                onClick={onClick}
                 style={{
                   height: 54,
                   paddingInline: 30,

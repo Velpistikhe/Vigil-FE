@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
-  const { fetchProfile, login, loadingLogin } = useAuth({
+  const { fetchProfile, login, logout, loadingLogin, loadingLogout } = useAuth({
     setUser,
     setLoadingUser,
   });
@@ -19,7 +19,9 @@ const AuthProvider = ({ children }) => {
   }, [fetchProfile]);
 
   return (
-    <AuthContext.Provider value={{ user, loadingUser, login, loadingLogin }}>
+    <AuthContext.Provider
+      value={{ user, loadingUser, login, logout, loadingLogin, loadingLogout }}
+    >
       {children}
     </AuthContext.Provider>
   );

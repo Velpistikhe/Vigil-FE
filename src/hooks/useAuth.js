@@ -31,19 +31,27 @@ const useAuth = ({
     [setUser, setLoadingUser, handleApiError],
   );
 
-  const { post, loading: loadingLogin } = usePost({
+  const { post: postLogin, loading: loadingLogin } = usePost({
     title: "Login",
     url: "auth/login",
     refetch: fetchProfile,
   });
 
+  const { post: postLogout, loading: loadingLogout } = usePost({
+    title: "Logout",
+    url: "auth/logout",
+    refetch: fetchProfile,
+  });
+
   const login = ({ data = null } = {}) => {
-    post(data);
+    postLogin(data);
   };
 
-  const logout = () => {};
+  const logout = () => {
+    postLogout();
+  };
 
-  return { loadingLogin, fetchProfile, login, logout };
+  return { loadingLogin, loadingLogout, fetchProfile, login, logout };
 };
 
 export default useAuth;
