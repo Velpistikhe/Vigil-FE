@@ -13,23 +13,28 @@ import Register from "../modules/auth/register";
 import Dashboard from "../modules/dashboard";
 import Kalkulator from "../modules/kalkulator";
 import Drug from "../modules/settting/drugs";
+import NotFound from "../modules/notfound";
 
 const AppRouter = () => {
   const { loadingUser, loadingLogin, loadingLogout } = useContext(AuthContext);
 
-  if (loadingUser || loadingLogin || loadingLogout) return <Loading />;
+  if (loadingUser || loadingLogin || loadingLogout) {
+    return <Loading />;
+  }
 
   return (
     <Routes>
       <Route element={<LandingLayout />}>
         <Route path="/" element={<Home />} />
       </Route>
+
       <Route element={<AuthRoutes />}>
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
       </Route>
+
       <Route element={<PrivateRoutes />}>
         <Route element={<MainLayout />}>
           <Route path="/overview" element={<Dashboard />} />
@@ -37,6 +42,8 @@ const AppRouter = () => {
           <Route path="/appmanager/drug/*" element={<Drug />} />
         </Route>
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

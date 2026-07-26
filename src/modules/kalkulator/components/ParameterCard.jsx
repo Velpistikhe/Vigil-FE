@@ -36,7 +36,7 @@ const ParameterCard = ({
         <CustomInputNumber
           disabled={loading}
           controls={false}
-          defaultValue={inputVal}
+          value={inputVal}
           onChange={(val) => setInputVal(val)}
           style={{
             width: screens.sm ? 220 : "100%",

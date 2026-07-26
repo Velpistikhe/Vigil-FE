@@ -2,6 +2,7 @@ import {
   AppstoreOutlined,
   CalculatorOutlined,
   ExperimentOutlined,
+  FolderFilled,
   RobotOutlined,
   SettingOutlined,
   UserOutlined,
@@ -19,14 +20,24 @@ const menuList = [
     label: "Kalkulator",
   },
   {
-    key: "/drug",
+    key: "/algoritma",
     icon: <ExperimentOutlined />,
-    label: "Drug",
+    label: "Algoritma",
   },
   {
-    key: "/assistant",
+    key: "/regional",
+    icon: <FolderFilled />,
+    label: "Regional",
+  },
+  {
+    key: "/ai",
     icon: <RobotOutlined />,
-    label: "AI Assistant",
+    label: "Ai Asisten",
+  },
+  {
+    key: "/aiformula",
+    icon: <FolderFilled />,
+    label: "Formula AI",
   },
   {
     key: "/profile",
