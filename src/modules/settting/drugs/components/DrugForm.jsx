@@ -2,19 +2,18 @@ import { Flex, Form, Input, Select } from "antd";
 import ButtonSubmit from "../../../../components/button/ButtonSubmit";
 import CustomInputNumber from "../../../../components/input/CustomInputNumber";
 import variantOptions from "./utils/variantOptions";
-import usePost from "../../../../hooks/usePost";
 
-const DrugForm = ({ onCancel = () => null, refetch = () => null } = {}) => {
+const DrugForm = ({
+  data = null,
+  method = () => null,
+  loading = false,
+} = {}) => {
   const [form] = Form.useForm();
-  const { post, loading } = usePost({
-    title: "Drug",
-    url: "drug",
-    refetch,
-    reset: onCancel,
-  });
 
-  const onFinish = (data) => {
-    post(data);
+  form.setFieldsValue(data);
+
+  const onFinish = (val) => {
+    method(val);
 
     form.resetFields();
   };
@@ -36,7 +35,7 @@ const DrugForm = ({ onCancel = () => null, refetch = () => null } = {}) => {
       </Form.Item>
       <Form.Item
         name="name"
-        label="Drug"
+        label="Nama Drug"
         rules={[{ required: true, message: "Kolom Drug wajib diisi." }]}
       >
         <Input />

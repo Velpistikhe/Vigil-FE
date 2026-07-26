@@ -6,8 +6,13 @@ const ListTable = ({
   datas = [],
   loading = false,
   refetch = () => null,
+  setId = () => null,
+  setOpenEdit = () => null,
 } = {}) => {
-  const columns = useMemo(() => getColumnsDrugs({ refetch }), [refetch]);
+  const columns = useMemo(
+    () => getColumnsDrugs({ refetch, setId, setOpenEdit }),
+    [refetch, setId, setOpenEdit],
+  );
 
   return <DataTable datas={datas} loading={loading} columns={columns} />;
 };
