@@ -21,6 +21,7 @@ const ListAddModal = ({
   return (
     <CustomModal
       title="Tambah Drug"
+      loading={loading}
       open={open}
       setOpen={setOpen}
       onCancel={onCancel}
